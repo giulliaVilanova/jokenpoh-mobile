@@ -51,16 +51,12 @@ class _HomeScreenState extends State<HomeScreen> {
       body: LayoutBuilder(
         builder: (context, constraints) {
           double screenHeight = constraints.maxHeight;
-          // Posição se o avatar estivesse centralizado:
           double centeredAvatarTop = (screenHeight - 100) / 2;
-          // Posição atual com top = 30
           double currentAvatarTop = 30;
-          // Nova posição: 25% da distância entre 30 e o centro, mais 10 pixels para baixo
           double newAvatarTop = currentAvatarTop + (centeredAvatarTop - currentAvatarTop) / 4 + 10;
 
           return Stack(
             children: [
-              // Avatar posicionado conforme o novo cálculo
               Positioned(
                 top: newAvatarTop,
                 left: (constraints.maxWidth - 100) / 2,
@@ -69,9 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   backgroundImage: AssetImage('assets/padrao.png'),
                 ),
               ),
-              // Conteúdo abaixo do avatar
               Positioned(
-                top: newAvatarTop + 100 + 10, // avatar + espaçamento
+                top: newAvatarTop + 100 + 10,
                 left: 0,
                 right: 0,
                 child: Column(
